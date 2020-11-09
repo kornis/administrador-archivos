@@ -11,18 +11,19 @@ module.exports = {
       typeUser: {
         type: Sequelize.ENUM,
         values: ["teacher", "student", "parent"],
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       deletedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });

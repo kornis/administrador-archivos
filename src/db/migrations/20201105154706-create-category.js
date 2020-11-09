@@ -11,7 +11,7 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      permissionId: {
+      /*permissionId: {
         type: Sequelize.BIGINT,
         onDelete: "CASCADE",
         references: {
@@ -21,17 +21,21 @@ module.exports = {
           key: "id"
         },
         allowNull: false
+      },*/
+      permission: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       deletedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
     });

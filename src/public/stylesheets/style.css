@@ -1,8 +1,93 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00B7FF;
+
+.contenedor{
+  display: flex;
+  min-height: 95vh;
+}
+
+.contenedor .aside{
+  align-self: stretch;
+  min-width: 250px;
+  box-shadow: gray 1px -2px 5px;
+  z-index: 10;
+}
+
+.aside h2{
+  text-align: center;
+  padding: 10px 2px;
+}
+
+.aside h2 a{
+  text-decoration: none !important;
+  color: rgb(82, 82, 82) !important;
+}
+
+.aside ul{
+  list-style-type: none;
+  text-align: start;
+  margin-left: 30px;
+}
+
+.aside ul li{
+  padding: 14px 6px;
+  border-bottom: solid 1px rgba(219, 213, 213, 0.829);
+}
+
+
+
+.contenedor section{
+  background-color: #EDF5F9;
+  width: 100%;
+}
+
+.contenedor section .header{
+  display: block;
+  height: 58px;
+}
+
+.header h4{
+  padding: 15px;
+  margin-left: 10px;
+  margin-bottom: 0 !important;
+}
+
+.contenedor section .main{
+  /* height: 100%; */
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  background-color: rgb(55, 2, 92);
+}
+
+.footer p{  
+  color: white;
+  font-size: 15px;
+  margin: 0 !important;
+}
+
+.data {
+  padding: 10px 15px;
+}
+
+.title {
+  padding: 10px 15px;
+}
+
+form.delete-button {
+  display: inline-block;
+}
+
+form button{
+  padding: 0;
+  margin: 0;
+  border: none;
 }
