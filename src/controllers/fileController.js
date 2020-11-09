@@ -64,13 +64,15 @@ module.exports = {
     update: (req, res, next) => {
         const id = req.params.id;
         const { name, category } = req.body;
-        const { filename } = req.file;
         let fileObj = {
             name,
             category,
-            path: '/file/' + filename
         }
-        console.log("obj", fileObj)
+        if(req.file){
+            const { filename } = req.file;
+            fileObj.path = '/file/' + filename;
+        }
+
         db.File.update(fileObj,{where:{id}})
             .then(response => {
                 if(response[0]){
