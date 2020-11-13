@@ -21,8 +21,9 @@ module.exports = {
     
     store: (req, res, next) => {
         const errors = validationResult(req);
-        if(errors){
-            console.log(errors);
+        if(errors.errors.length > 0){
+            req.flashMsg(errors.errors)
+            return res.redirect('back');
         }
         const { title, permission } = req.body;
         db.Category.create({ title, permission })
@@ -43,6 +44,12 @@ module.exports = {
     },
     
     update: (req, res, next) => {
+        const errors = validationResult(req);
+        if(errors.errors.length > 0){
+            req.flashMsg(errors.errors)
+            return res.redirect('back');
+        }
+        
         const { title, permission } = req.body;
         const id = req.params.id;
         db.Category.update({title, permission},{where:{id}})

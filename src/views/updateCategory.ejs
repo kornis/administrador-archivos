@@ -26,8 +26,16 @@
             <hr>
             <div class="main">
                 <div class="title">
-                    <h3>Crear Categoría</h3>
+                    <h3>Editar Categoría</h3>
                 </div>
+
+                <% let errors = showError() %>
+                <% if(errors.length != 0){ %>
+                    <div class="alert alert-danger">
+                    <p><%= errors[0].msg %></p>
+                </div>
+                <% } %>
+                
                 <div class="data">
                     <form action="/categorias/<%= category.id %>?_method=PUT" method="POST">
                         <div class="form-group">

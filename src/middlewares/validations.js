@@ -26,6 +26,10 @@ const fileValidation = [
             in: ['body'],
             notEmpty: {
                 errorMessage: "Debe escribir un nombre para el archivo.",
+            },
+            isLength: {
+                errorMessage: "El nombre debe tener un mínimo de 3 caracteres.",
+                options: {min: 3}
             }
         }
     })

@@ -24,7 +24,7 @@ router.get('/categorias', categoryController.index);
 router.get('/categorias/crear', categoryController.create);
 router.get('/categorias/:id', categoryController.edit);
 router.post('/categorias', categoryValidator, categoryController.store);
-router.put('/categorias/:id', categoryController.update);
+router.put('/categorias/:id', categoryValidator, categoryController.update);
 router.delete('/categorias/:id', categoryController.delete);
 
 module.exports = router;

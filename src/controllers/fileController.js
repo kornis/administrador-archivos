@@ -28,7 +28,7 @@ module.exports = {
         const errors = validationResult(req);
         if(errors.errors.length > 0){
             req.flashMsg(errors.errors)
-            return res.redirect('/archivos/subir');
+            return res.redirect('back');
         }
 
         let obj = {
@@ -59,6 +59,13 @@ module.exports = {
             })
     },
     update: (req, res, next) => {
+
+        const errors = validationResult(req);
+        if(errors.errors.length > 0){
+            req.flashMsg(errors.errors)
+            return res.redirect('back');
+        }
+
         const id = req.params.id;
         const { name, category } = req.body;
         let fileObj = {
