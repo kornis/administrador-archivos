@@ -30,46 +30,46 @@
                 </div>
                 <hr>
                 <div class="data">
-                  <% if(files == undefined || files.length === 0) { %>
-                    <h2>No hay archivos para mostrar...</h2>
-                    <a href="/archivos/subir">Click aquí para crear una nueva categoría</a>
-                <% }else{ %>
-                <div class="data">
-                    <a href="/archivos/subir" class="btn btn-primary">Crear nuevo archivo</a>
-                <table class="table table-striped">
-                    <thead>
-                       <tr>
-                        <th scope="col">#ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Ruta</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                     <% files.forEach(file => { %>
-                         <tr>
-                           <th scope="row"><%= file.id %></th>
-                           <td><%= file.name %></td>
-                           <td><%= file.path %></td>
-                           <td>
-                             <a href="/archivos/<%= file.id %>" class="badge badge-primary"> Editar</a>
-                             <form action="/archivos/<%= file.id %>?_method=DELETE" method="POST" class="delete-button">
-                                <button class="badge badge-danger">Borrar</button>
-                            </form>
-                           </td>
-                         </tr>
-                     <% }); %>   
-
-                    </tbody>
-                  </table>
+                    <% if(files == undefined || files.length === 0) { %>
+                        <h2>No hay archivos para mostrar...</h2>
+                        <a href="/archivos/subir">Click aquí para crear una nueva categoría</a>
+                        <% }else{ %>
+                            <div class="data">
+                                <a href="/archivos/subir" class="btn btn-primary">Crear nuevo archivo</a>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#ID</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Ruta</th>
+                                            <th scope="col">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% files.forEach(file => { %>
+                                            <tr>
+                                                <th scope="row"><%= file.id %></th>
+                                                <td><%= file.name %></td>
+                                                <td><%= file.path %></td>
+                                                <td>
+                                                    <a href="/archivos/<%= file.id %>" class="badge badge-primary"> Editar</a>
+                                                    <form action="/archivos/<%= file.id %>?_method=DELETE" method="POST" class="delete-button">
+                                                        <button class="badge badge-danger">Borrar</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <% }); %>   
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            <% } %>
+                <div class="footer">
+                    <p>Footer</p>
                 </div>
-            </div>
-        </section>
-    </div>
-    <div class="footer">
-        <p>Footer</p>
-    </div>
-</body>
-</html>
+            </body>
+            </html>

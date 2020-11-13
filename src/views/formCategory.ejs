@@ -31,32 +31,32 @@
                 <% let errors = showError() %>
                 <% if(errors.length != 0){ %>
                     <div class="alert alert-danger">
-                    <p><%= errors[0].msg %></p>
+                        <p><%= errors[0].msg %></p>
+                    </div>
+                    <% } %>
+                    
+                    <div class="data">
+                        <form action="/categorias" method="POST">
+                            <div class="form-group">
+                                <label for="title">Nombre de la categoría</label>
+                                <input type="text" id="title" class="form-control" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="permission">Permisos</label>
+                                <select name="permission" id="permission" class="form-control">
+                                    <option value="teacher">Profesor</option>
+                                    <option value="student">Alumno</option>
+                                    <option value="parent">Padre</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary">Guardar Categoría</button>
+                        </form>
+                    </div>
                 </div>
-                <% } %>
-
-                <div class="data">
-                    <form action="/categorias" method="POST">
-                        <div class="form-group">
-                            <label for="title">Nombre de la categoría</label>
-                            <input type="text" id="title" class="form-control" name="title">
-                        </div>
-                        <div class="form-group">
-                            <label for="permission">Permisos</label>
-                            <select name="permission" id="permission" class="form-control">
-                                <option value="teacher">Profesor</option>
-                                <option value="student">Alumno</option>
-                                <option value="parent">Padre</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary">Guardar Categoría</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="footer">
-        <p>Footer</p>
-      </div>
-</body>
-</html>
+            </section>
+        </div>
+        <div class="footer">
+            <p>Footer</p>
+        </div>
+    </body>
+    </html>

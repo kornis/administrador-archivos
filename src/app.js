@@ -8,7 +8,6 @@ const session = require('express-session');
 const manageError = require('./middlewares/manageErrors');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -26,7 +25,6 @@ app.use(session({secret: "mensaje_secreto", resave: false, saveUninitialized: tr
 app.use(manageError());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('*', (req, res, next) =>{
   res.send("Error 404 - Page not found...");
 })

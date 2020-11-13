@@ -1,7 +1,6 @@
 const showError = (req) => {
     return () => {
         let msg = req.session.manageError || [];
-        //console.log("mens", msg.length)
         req.session.manageError = "";
         return msg
     }

@@ -22,47 +22,47 @@
         <section>
             <div class="header">
                 <h4>Adminsitrador de datos</h1>
-            </div>
-            <hr>
-            <div class="main">
-                <div class="title">
-                    <h3>Subir nuevo archivo</h3> 
                 </div>
+                <hr>
+                <div class="main">
+                    <div class="title">
+                        <h3>Subir nuevo archivo</h3> 
+                    </div>
                     <% let errors = showError() %>
                     <% if(errors.length != 0){ %>
                         <div class="alert alert-danger">
-                        <p><%= errors[0].msg %></p>
-                    </div>
-                    <% } %>
-                
-               
-                <div class="data">
-                    <form action="/archivos" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="category">Categoría</label>
-                            <select name="category" id="category" class="form-control">
-                                <option disabled selected>Seleccione una opción...</option>
-                                <% categories.forEach(cat => { %>
-                                    <option value="<%= cat.id %>"><%= cat.title %></option>
-                                <% }); %>
-                            </select>
+                            <p><%= errors[0].msg %></p>
                         </div>
-                        <div class="form-group">
-                            <label for="name">Nombre del archivo</label>
-                            <input type="text" id="name" class="form-control" name="name">
+                        <% } %>
+                        
+                        
+                        <div class="data">
+                            <form action="/archivos" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="category">Categoría</label>
+                                    <select name="category" id="category" class="form-control">
+                                        <option disabled selected>Seleccione una opción...</option>
+                                        <% categories.forEach(cat => { %>
+                                            <option value="<%= cat.id %>"><%= cat.title %></option>
+                                            <% }); %>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Nombre del archivo</label>
+                                        <input type="text" id="name" class="form-control" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" name="file">
+                                    </div>
+                                    <button class="btn btn-primary">Subir archivo</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="file" class="form-control" name="file">
-                        </div>
-                        <button class="btn btn-primary">Subir archivo</button>
-                    </form>
+                    </section>
                 </div>
-            </div>
-        </section>
-    </div>
-    <div class="footer">
-        <p>Footer</p>
-      </div>
-</body>
-</html>
-
+                <div class="footer">
+                    <p>Footer</p>
+                </div>
+            </body>
+            </html>
+            

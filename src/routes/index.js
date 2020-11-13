@@ -5,7 +5,7 @@ const categoryController = require('../controllers/categoryController');
 const fileController = require('../controllers/fileController');
 const indexController = require('../controllers/indexController');
 const [categoryValidator, fileValidator] = require('../middlewares/validations');
-const uploadFile = require('../assets/multer');
+const uploadFile = require('../middlewares/multer');
 
 /* GET home page. */
 router.get('/', indexController.index);

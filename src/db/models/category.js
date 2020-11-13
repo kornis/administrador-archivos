@@ -10,11 +10,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   
   Category.associate = function(models) {
-    // associations can be defined here
-    /*Category.belongsTo(models.Permission, {
-      foreignKey: "id"
-    });*/
-
     Category.hasMany(models.File, {
       foreignKey: "categoryId"
     })

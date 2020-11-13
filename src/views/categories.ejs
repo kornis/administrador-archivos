@@ -30,46 +30,46 @@
                 </div>
                 <hr>
                 <div class="data">
-                <% if(categories == undefined || categories.length === 0) { %>
-                    <h2>No hay categorías para mostrar...</h2>
-                    <a href="/categorias/crear">Click aquí para crear una nueva categoría</a>
-                <% }else{ %>
-                
-                    <a href="/categorias/crear" class="btn btn-primary">Crear nueva categoría</a>
-                <table class="table table-striped">
-                    <thead>
-                       <tr> 
-                        <th scope="col">#ID</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Cant. Archivos</th>
-                        <th scope="col">Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                     <% categories.forEach(cat => { %>
-                         <tr>
-                           <th scope="row"><%= cat.id %></th>
-                           <td><%= cat.title %></td>
-                           <td><%= cat.Files.length %></td>
-                           <td>
-                             <a href="/categorias/<%= cat.id %>" class="badge badge-primary"> Editar</a>
-                             <form action="/categorias/<%= cat.id %>?_method=DELETE" method="POST" class="delete-button">
-                                <button class="badge badge-danger">Borrar</button>
-                            </form>
-                           </td>
-                         </tr>
-                     <% }); %>   
-
-                    </tbody>
-                  </table>
+                    <% if(categories == undefined || categories.length === 0) { %>
+                        <h2>No hay categorías para mostrar...</h2>
+                        <a href="/categorias/crear">Click aquí para crear una nueva categoría</a>
+                        <% }else{ %>
+                            
+                            <a href="/categorias/crear" class="btn btn-primary">Crear nueva categoría</a>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr> 
+                                        <th scope="col">#ID</th>
+                                        <th scope="col">Título</th>
+                                        <th scope="col">Cant. Archivos</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% categories.forEach(cat => { %>
+                                        <tr>
+                                            <th scope="row"><%= cat.id %></th>
+                                            <td><%= cat.title %></td>
+                                            <td><%= cat.Files.length %></td>
+                                            <td>
+                                                <a href="/categorias/<%= cat.id %>" class="badge badge-primary"> Editar</a>
+                                                <form action="/categorias/<%= cat.id %>?_method=DELETE" method="POST" class="delete-button">
+                                                    <button class="badge badge-danger">Borrar</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <% }); %>   
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <% } %>
+                        </div>
+                    </section>
+                    
                 </div>
-            <% } %>
-            </div>
-        </section>
-
-    </div>
-    <div class="footer">
-        <p>Footer</p>
-    </div>
-</body>
-</html>
+                <div class="footer">
+                    <p>Footer</p>
+                </div>
+            </body>
+            </html>
