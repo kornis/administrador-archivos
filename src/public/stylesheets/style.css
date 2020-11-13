@@ -57,6 +57,7 @@
 }
 
 .footer {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -95,4 +96,8 @@ form button {
 
 .pagination_links span {
   margin: 0 6px;
+}
+
+.action_buttons {
+  margin-bottom: 10px;
 }

@@ -29,18 +29,22 @@
             <hr>
             <div class="main">
                 <div class="title">
-                    <h3>Archivos</h3>
+                    <h3>Archivos eliminados</h3>
                 </div>
                 <hr>
+                <% let errors = showError() %>
+                <% if(errors.length != 0){ %>
+                <div class="alert alert-danger">
+                    <p><%= errors[0].msg %></p>
+                </div>
+                <% } %>
                 <div class="data">
                     <% if(files == undefined || files.length === 0) { %>
                     <h2>No hay archivos para mostrar...</h2>
-                    <a href="/archivos/subir">Click aquí para subir un nuevo archivo</a>
                     <% }else{ %>
                     <div class="data">
                         <div class="action_buttons">
-                            <a href="/archivos/subir" class="btn btn-primary">Crear nuevo archivo</a>
-                            <a href="/archivos_eliminados" class="btn btn-warning">Recuperar archivos eliminados</a>
+                            <a href="/archivos" class="btn btn-primary">Ver listado de archivos activos</a>
                         </div>
                         <table class="table table-striped">
                             <thead>
@@ -58,10 +62,9 @@
                                     <td><%= file.name %></td>
                                     <td><%= file.path %></td>
                                     <td>
-                                        <a href="/archivos/<%= file.id %>" class="badge badge-primary"> Editar</a>
-                                        <form action="/archivos/<%= file.id %>?_method=DELETE" method="POST"
+                                        <form action="/archivos_eliminados/recuperar/<%= file.id %>?_method=put" method="POST"
                                             class="delete-button">
-                                            <button class="badge badge-danger">Borrar</button>
+                                            <button class="badge badge-warning">Recuperar</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -76,10 +79,10 @@
             <div class="pagination">
                 <div class="pagination_links">
                     <% if(prev != null){ %>
-                    <span><a href="/archivos<%= prev %>">Anterior</a></span>
+                    <span><a href="/archivos_eliminados<%= prev %>">Anterior</a></span>
                     <% } %>
                     <% if(next != null){ %>
-                    <span><a href="/archivos<%= next %>">Siguiente</a></span>
+                    <span><a href="/archivos_eliminados<%= next %>">Siguiente</a></span>
                     <% } %>
                 </div>
             </div>

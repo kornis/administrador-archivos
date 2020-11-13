@@ -11,15 +11,19 @@ const uploadFile = require('../middlewares/multer');
 router.get('/', indexController.index);
 
 
-//files routes
+// Files routes
 router.get('/archivos', fileController.index);
 router.get('/archivos/subir', fileController.uploadFile);
 router.get('/archivos/:id', fileController.edit);
 router.post('/archivos', uploadFile.single('file'), fileValidator, fileController.store);
 router.put('/archivos/:id', uploadFile.single('file'), fileController.update);
 router.delete('/archivos/:id', fileController.delete);
+// Deleted files
+router.get('/archivos_eliminados', fileController.showDeletedFiles);
+router.put('/archivos_eliminados/recuperar/:id', fileController.restoreDeletedFile);
 
-//categories routes
+
+// Categories routes
 router.get('/categorias', categoryController.index);
 router.get('/categorias/crear', categoryController.create);
 router.get('/categorias/:id', categoryController.edit);
