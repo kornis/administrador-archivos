@@ -1,4 +1,5 @@
 const db = require('../db/models');
+const { validationResult } = require('express-validator');
 
 module.exports = {
     index: (req, res) => {
@@ -23,27 +24,23 @@ module.exports = {
             })
     }, 
 
-    store: (req, res, next) => {
-        console.log(req.body)
-        const store = async function(model, obj){
-            let response = await model.create(obj);
-            if(response){
-                return response;
-            }
-            return false;
+    store: async (req, res, next) => {
+        const errors = validationResult(req);
+        if(errors.errors.length > 0){
+            req.flashMsg(errors.errors)
+            return res.redirect('/archivos/subir');
         }
 
-        req.files.forEach(async (file) => {
-            let obj = {
-                name: req.body.name,
-                path: '/files/'+file.filename,
-                categoryId: req.body.category
-            }
-            let response = await store(db.File, obj);
-            if(response == false){
+        let obj = {
+            name: req.body.name,
+            path: '/files/'+ req.file.filename,
+            categoryId: req.body.category
+        }
+            
+            let response = await db.File.create(obj);
+            if(response == 0){
                 return res.render('error');
             }
-        });
 
         return res.redirect('/archivos');
     },

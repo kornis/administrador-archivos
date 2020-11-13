@@ -1,4 +1,5 @@
 const db = require('../db/models');
+const { validationResult } = require('express-validator');
 
 module.exports = {
     index: (req, res) => {
@@ -19,6 +20,10 @@ module.exports = {
     },
     
     store: (req, res, next) => {
+        const errors = validationResult(req);
+        if(errors){
+            console.log(errors);
+        }
         const { title, permission } = req.body;
         db.Category.create({ title, permission })
         .then(() => {

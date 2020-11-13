@@ -28,6 +28,12 @@
                 <div class="title">
                     <h3>Subir nuevo archivo</h3> 
                 </div>
+                    <% let errors = showError() %>
+                    <% if(errors.length != 0){ %>
+                        <p><%= errors[0].msg %></p>
+                    <% } %>
+                
+               
                 <div class="data">
                     <form action="/archivos" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
@@ -57,3 +63,4 @@
       </div>
 </body>
 </html>
+

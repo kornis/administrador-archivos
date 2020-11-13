@@ -1,0 +1,57 @@
+1)Crear express
+express "nombre" --ejs
+
+2)Entrar a la carpeta e instalar dependencias: npm install
+
+3)Creamos una carpeta controllers
+
+--------------------------------------------------------------------------
+4)Al hacer un archivo nuevo en "routes", hay que ponerlo en app.js
+var rutaNueva = require('./routes/rutaNueva');
+
+5)Esa misma ruta creada, poner en app.js para usarla
+app.use('/ruta-nueva', rutaNueva);
+
+---------------------------------------------------------------------------
+6)Crear el archivo de la ruta nueva en "routes"
+
+---------------------------------------------------------------------------
+7)Dentro de la carpeta controllers crear:
+nuevaRutaControlle.js
+
+--------------------------------------------------------------------------
+8)Dentro de la carpeta route entrar a la nueva ruta creada y escribir:
+let express = require('express');
+let router = express.Router();
+
+let nuevaRutaController = require('../controllers/nuevaRutaController.js');
+
+9)En el medio escribir:
+router.get('/', nuevaRutaController.metodo);
+
+10)Donde '/' seria el home de la nueva ruta, el controller llama a un metodo "metodo"
+
+11)Al final exportarlo "module.exports = router;"
+
+--------------------------------------------------------------------------
+12)Abrir nuevaRutaController de la carpeta controllers
+
+13)Crear un objeto literal con sus metodos, ej:
+let nuevaRutaController = {
+    	listado: function() {},
+	crear: function() {}
+}
+
+--------------------------------------------------------------------------
+PARA USAR JSON: Importarlo  dentro del archivo controlador
+
+14)Primero requerir:
+const fs = require('fs')
+
+15) Parsearlo y especificar la ruta del archivo json
+let heroes = JSON.parse(fs.readFileSync('./database/heroes.json', 'utf-8'));
+
+16)Para usar el archivo basta con:
+heroes[0].id -> Devuelve el id del primer heroe del array
+heroes[0].profesion -> Devuelve su profesion
+heroes[i] -> Para recorrer todo el array del json
