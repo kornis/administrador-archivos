@@ -64,16 +64,15 @@
                 </div>
             <% } %>
                 </div>
-                <hr>
+
                 <div class="title">
                   <h3>Categorías top 5</h3>
               </div>
-              <div class="data">
               <% if(categories == undefined || categories.length === 0) { %>
                   <h2>No hay categorías para mostrar...</h2>
                   <a href="/categorias/crear">Click aquí para crear una nueva categoría</a>
               <% }else{ %>
-              
+              <div class="data">
                   <a href="/categorias/crear" class="btn btn-primary">Crear nueva categoría</a>
               <table class="table table-striped">
                   <thead>

@@ -4,7 +4,7 @@ var router = express.Router();
 const categoryController = require('../controllers/categoryController');
 const fileController = require('../controllers/fileController');
 const indexController = require('../controllers/indexController');
-const [categoryValidator, fileValidator] = require('../middlewares/validations');
+
 const uploadFile = require('../assets/multer');
 
 /* GET home page. */
@@ -15,7 +15,7 @@ router.get('/', indexController.index);
 router.get('/archivos', fileController.index);
 router.get('/archivos/subir', fileController.uploadFile);
 router.get('/archivos/:id', fileController.edit);
-router.post('/archivos', uploadFile.single('file'), fileValidator, fileController.store);
+router.post('/archivos', uploadFile.any(), fileController.store);
 router.put('/archivos/:id', uploadFile.single('file'), fileController.update);
 router.delete('/archivos/:id', fileController.delete);
 
@@ -23,7 +23,7 @@ router.delete('/archivos/:id', fileController.delete);
 router.get('/categorias', categoryController.index);
 router.get('/categorias/crear', categoryController.create);
 router.get('/categorias/:id', categoryController.edit);
-router.post('/categorias', categoryValidator, categoryController.store);
+router.post('/categorias', categoryController.store);
 router.put('/categorias/:id', categoryController.update);
 router.delete('/categorias/:id', categoryController.delete);
 
