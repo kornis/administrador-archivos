@@ -4,7 +4,7 @@ const categoryValidation = [
     check('title')
         .notEmpty()
         .withMessage('El campo Título no puede estar vacío.').bail()
-        .isLength({min:3})
+        .isLength({ min: 3 })
         .withMessage('El Título debe tener como mínimo 3 caracteres.')
 ];
 
@@ -12,7 +12,7 @@ const fileValidation = [
     checkSchema({
         'file': {
             custom: {
-                options: (_, {req}) => req.file != undefined,
+                options: (_, { req }) => req.file != undefined,
                 errorMessage: "Es obligatorio subir un archivo."
             }
         },
@@ -20,7 +20,7 @@ const fileValidation = [
             custom: {
                 options: (value) => value != undefined,
                 errorMessage: "Debe seleccionar una categoría."
-            }      
+            }
         },
         'name': {
             in: ['body'],
@@ -29,7 +29,7 @@ const fileValidation = [
             },
             isLength: {
                 errorMessage: "El nombre debe tener un mínimo de 3 caracteres.",
-                options: {min: 3}
+                options: { min: 3 }
             }
         }
     })

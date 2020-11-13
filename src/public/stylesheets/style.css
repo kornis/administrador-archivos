@@ -3,59 +3,56 @@
   padding: 0;
 }
 
-
-.contenedor{
+.contenedor {
   display: flex;
   min-height: 95vh;
 }
 
-.contenedor .aside{
+.contenedor .aside {
   align-self: stretch;
   min-width: 250px;
   box-shadow: gray 1px -2px 5px;
   z-index: 10;
 }
 
-.aside h2{
+.aside h2 {
   text-align: center;
   padding: 10px 2px;
 }
 
-.aside h2 a{
+.aside h2 a {
   text-decoration: none !important;
   color: rgb(82, 82, 82) !important;
 }
 
-.aside ul{
+.aside ul {
   list-style-type: none;
   text-align: start;
   margin-left: 30px;
 }
 
-.aside ul li{
+.aside ul li {
   padding: 14px 6px;
   border-bottom: solid 1px rgba(219, 213, 213, 0.829);
 }
 
-
-
-.contenedor section{
-  background-color: #EDF5F9;
+.contenedor section {
+  background-color: #edf5f9;
   width: 100%;
 }
 
-.contenedor section .header{
+.contenedor section .header {
   display: block;
   height: 58px;
 }
 
-.header h4{
+.header h4 {
   padding: 15px;
   margin-left: 10px;
   margin-bottom: 0 !important;
 }
 
-.contenedor section .main{
+.contenedor section .main {
   /* height: 100%; */
 }
 
@@ -68,7 +65,7 @@
   background-color: rgb(55, 2, 92);
 }
 
-.footer p{  
+.footer p {
   color: white;
   font-size: 15px;
   margin: 0 !important;
@@ -86,8 +83,16 @@ form.delete-button {
   display: inline-block;
 }
 
-form button{
+form button {
   padding: 0;
   margin: 0;
   border: none;
+}
+
+.pagination_links {
+  margin: auto;
+}
+
+.pagination_links span {
+  margin: 0 6px;
 }

@@ -6,15 +6,15 @@ const showError = (req) => {
     }
 }
 
-function manageError(){
+function manageError() {
     return (req, res, next) => {
-    req.flashMsg = dataError;
-    res.locals.showError = showError(req);
-    next();
+        req.flashMsg = dataError;
+        res.locals.showError = showError(req);
+        next();
     }
 }
 
-function dataError(data){
+function dataError(data) {
     this.session.manageError = data;
     console.log(data)
 }
